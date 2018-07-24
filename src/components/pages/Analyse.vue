@@ -56,7 +56,7 @@ export default {
     }
   },
   methods: {
-    login: function () {
+    send: function () {
     let api = ''
     let keyword = this.keyword
     let startdate = this.startdate
