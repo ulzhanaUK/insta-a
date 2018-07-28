@@ -32,7 +32,7 @@
 		<div class="columns">
       <div class="column">
          <h3>Line Chart</h3>
-        <line-chart :response="stats"></line-chart>
+        <line-chart :chartData="stats"></line-chart>
       </div>
       <div class="column">
         <h3>Pie Chart</h3>
@@ -82,8 +82,10 @@ export default {
 					'Content-type': 'application/json'
 				}
 			}).then( (response) => {
-					console.log(response)
-          this.stats = response.data
+					// console.log(response)
+					this.stats = response.data
+					console.log(this.stats)
+					// this.$store.commit('change_data', response.data)
 	        // this.$router.push('/analyse')
 	      }, (err) => {
 	        console.log(err)
