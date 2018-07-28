@@ -6,11 +6,9 @@
 
         <ul class="uk-navbar-nav">
             <li><a href="/#/aboutus">About Us</a></li>
-            
         </ul>
-
     </div>
-
+     <a href="/#/" class="uk-navbar-center"><img class="uk-width-1-4@s" src="@/assets/logo.png"></a>
     <div class="uk-navbar-right">
 
         <ul class="uk-navbar-nav">
@@ -39,5 +37,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  
+  .uk-navbar-container:not(.uk-navbar-transparent) {
+    background: #ffffff;
+}  
 </style>

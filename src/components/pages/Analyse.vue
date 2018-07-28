@@ -4,27 +4,23 @@
 		<center>
 	<vk-card class="uk-width-1-3@m">
   <form class="login" @submit.prevent="send">
-    <h3>Analyse the keyword</h3>
+    <h3 style="color: de3f22">Analyse the keyword</h3>
     <div class="uk-margin uk-width-1-1">
         <input class="uk-input" required v-model="keyword" type="text" placeholder="keyword">
-    </div>
-    <form class="uk-form">
       <h5>Start date</h5>
-      <input type="text" v-model="startdate" placeholder="DD.MM.YYYY" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-    </form> 
-    <form class="uk-form">
+      <input class="uk-input" required type="text" v-model="startdate" placeholder="DD.MM.YYYY">
     	<h5>Finish date</h5>
-      <input type="text" v-model="finishdate" placeholder="DD.MM.YYYY" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-    </form> 
+      <input class="uk-input" required type="text" v-model="finishdate" placeholder="DD.MM.YYYY">
+    </div>
     <div class="uk-margin uk-width-1-1">
       <a class="uk-width-1-2 uk-button uk-button-primary uk-button-small">Analyse</a>
     </div>
   </form>
   </vk-card>
   </center>
-		<div class="columns">
+		<div v-if="send" class="columns">
       <div class="column">
-        <h3>Line Chart</h3>
+         <h3>Line Chart</h3>
         <line-chart></line-chart>
       </div>
       <div class="column">
@@ -56,7 +52,7 @@ export default {
     }
   },
   methods: {
-    login: function () {
+    send: function () {
     let api = ''
     let keyword = this.keyword
     let startdate = this.startdate
@@ -68,6 +64,11 @@ export default {
       }, (err) => {
         console.log(err)
     })
+      Vue.axios.get(api, {
+        
+      }).then((response) => {
+      console.log(response.data)
+})
     }
   }
 }
