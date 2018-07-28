@@ -45,22 +45,22 @@
     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
       </div>
-	  <Footer />
+	  <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/partials/Navbar"
-import Footer from "@/components/partials/Footer"
+// import Footer from "@/components/partials/Footer"
 export default {
 components: {
-    Navbar,
-    Footer
+    Navbar
+    // Footer
   }
 }
-	
+
 </script>
 
 <style>
-	
+
 </style>

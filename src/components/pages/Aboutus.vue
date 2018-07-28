@@ -2,22 +2,22 @@
 	<div>
 		<Navbar />
 		<h2>About us</h2>
-		<Footer />
+		<!-- <Footer /> -->
 	</div>
 </template>
 
 <script>
 import Navbar from "@/components/partials/Navbar"
-import Footer from "@/components/partials/Footer"
+// import Footer from "@/components/partials/Footer"
 export default {
   components: {
-    Navbar,
-    Footer
+    Navbar
+    // Footer
   }
 }
-	
+
 </script>
 
 <style>
-	
+
 </style>
