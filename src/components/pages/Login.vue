@@ -16,19 +16,19 @@
     </div>
     <a href="#">Forget Password</a>
   </form>
-  </vk-card> 
+  </vk-card>
   </center>
-  <Footer />
+  <!-- <Footer /> -->
 </div>
 </template>
 
 <script>
 import Navbar from "@/components/partials/Navbar"
-import Footer from "@/components/partials/Footer"
+// import Footer from "@/components/partials/Footer"
 export default {
   components: {
-    Navbar,
-    Footer
+    Navbar
+    // Footer
   },
   data() {
     return {

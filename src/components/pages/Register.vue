@@ -30,18 +30,18 @@
     <a class="uk-width-1-1 uk-button uk-button-primary uk-button-large">Sign up</a>
     </div>
   </form>
-  </vk-card> 
+  </vk-card>
   <vk-card class="uk-width-1-3@m">
        <p>Have an account? <a href="/#/login">log in</a></p>
   </vk-card>
   </center>
-  <Footer />
+  <!-- <Footer /> -->
 </div>
 </template>
 
 <script>
 import Navbar from "@/components/partials/Navbar"
-import Footer from "@/components/partials/Footer"
+// import Footer from "@/components/partials/Footer"
 export default {
   data() {
     return {
@@ -75,7 +75,7 @@ export default {
     }
   },
   components: {
-    Footer,
+    // Footer,
     Navbar
   }
 }

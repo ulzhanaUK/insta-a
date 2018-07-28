@@ -6,15 +6,15 @@
   extends: Pie,
   mounted () {
     this.renderChart({
-      labels: ['Instagram', 'VK', 'Facebook'],
+      labels: ['Instagram'],
       datasets: [
         {
           backgroundColor: [
-            '#E46651',
-            '#00D8FF',
-            '#DD1B16'
+            '#E46651'
+            // '#00D8FF',
+            // '#DD1B16'
           ],
-          data: [40, 20, 80]
+          data: [100]
         }
       ]
     }, {responsive: true, maintainAspectRatio: false})
