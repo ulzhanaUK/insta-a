@@ -32,7 +32,7 @@
 		<div class="columns">
       <div class="column">
          <h3>Line Chart</h3>
-        <line-chart></line-chart>
+        <line-chart :response="stats"></line-chart>
       </div>
       <div class="column">
         <h3>Pie Chart</h3>
@@ -60,7 +60,8 @@ export default {
     return {
       keyword: "",
       startdate:"",
-      finishdate: ""
+      finishdate: "",
+      stats: {}
     }
   },
   methods: {
@@ -82,6 +83,7 @@ export default {
 				}
 			}).then( (response) => {
 					console.log(response)
+          this.stats = response.data
 	        // this.$router.push('/analyse')
 	      }, (err) => {
 	        console.log(err)

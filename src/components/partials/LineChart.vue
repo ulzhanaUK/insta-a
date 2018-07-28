@@ -4,11 +4,14 @@
   //Exporting this so it can be used in other components
   export default {
     extends: Line,
+    props: ['response'],
     data () {
       return {
+        label_data: [],
+        data_data: [],
         datacollection: {
         //Data to be represented on x-axis
-          labels: ['13.07', '14.07', '15.07', '16.07', '17.07', '18.07', '19.07', '20.07', '21.07', '22.07', '23.07', '24.07'],
+          labels: this.label_data,
           datasets: [
             {
               label: 'Instagram',
@@ -19,7 +22,7 @@
               pointBorderColor: 'blue',
               fill: false,
               //Data to be represented on y-axis
-              data: [40, 20, 30, 50, 90, 10, 20, 40, 50, 70, 90, 100]
+              data: this.data_data
             }
             // {
             //   label: 'VKontakte',
@@ -57,6 +60,14 @@
           responsive: true,
           maintainAspectRatio: false
         }
+      }
+    },
+    updated() {
+      // Fired every second, should always be true
+      console.log(this.response)
+      for(date in this.response.dates) {
+        this.label_data.push(date["date"])
+        this.data_data.push(date["vk"]["posts_count"])
       }
     },
     mounted () {
