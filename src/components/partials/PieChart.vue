@@ -7,7 +7,10 @@
     mixins: [mixins.reactiveProp],
     props: ['chartData'],
     mounted () {
-      this.renderChart(this.chartData, {responsive: true, maintainAspectRatio: false})
+      this.renderChart(this.chartData, {
+        responsive: true,
+        maintainAspectRatio: false
+      })
     }
   }
 </script>

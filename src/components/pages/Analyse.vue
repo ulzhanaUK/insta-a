@@ -1,50 +1,61 @@
 <template>
 	<div>
 		<Navbar2 />
-        <div class="columns">
-        	<div class="column">
-			<vk-card class="uk-width-1-1@m">
-			  <form class="login uk-form" @submit.prevent="send">
-			    <h3>Проверить</h3>
+    <div class="columns">
+			<div class="column">
+			</div>
+      <div class="column">
+				<vk-card class="uk-width-1-1@m">
+				  <form class="login uk-form" @submit.prevent="send">
+				    <h3>Проверить</h3>
 
-					<span>Текст</span>
-					<div class="uk-margin uk-width-1-1">
-				    <input class="uk-input" required v-model="keyword" type="text" placeholder="текст">
-					</div>
+						<span>Текст</span>
+						<div class="uk-margin uk-width-1-1">
+					    <input class="uk-input" required v-model="keyword" type="text" placeholder="текст">
+						</div>
 
-					<span>Начальная дата</span>
-					<div class="uk-margin uk-width-1-1">
-			      <input class="uk-input" type="date" v-model="startdate" placeholder="DD.MM.YYYY" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-					</div>
+						<span>Начальная дата</span>
+						<div class="uk-margin uk-width-1-1">
+				      <input class="uk-input" type="date" v-model="startdate" placeholder="DD.MM.YYYY" data-uk-datepicker="{format:'DD.MM.YYYY'}">
+						</div>
 
-					<span>Конечная дата</span>
-					<div class="uk-margin uk-width-1-1">
-						<input class="uk-input" type="date" v-model="finishdate" placeholder="DD.MM.YYYY" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-					</div>
+						<span>Конечная дата</span>
+						<div class="uk-margin uk-width-1-1">
+							<input class="uk-input" type="date" v-model="finishdate" placeholder="DD.MM.YYYY" data-uk-datepicker="{format:'DD.MM.YYYY'}">
+						</div>
 
-					<div class="uk-margin uk-width-1-1">
-						<button type="submit" class="uk-width-1-2 uk-button uk-button-primary uk-button-small">Анализировать</button>
-					</div>
-				</form>
-		  </vk-card>
+						<div class="uk-margin uk-width-1-1">
+							<button type="submit" class="uk-width-1-2 uk-button uk-button-primary uk-button-small">Анализировать</button>
+						</div>
+					</form>
+			  </vk-card>
 		  </div>
+			<div class="column">
+			</div>
+  	</div>
+		<div class="columns">
+			<div class="column">
+         <h3>Использование в постах</h3>
+        <line-chart :chartData="lineChartDataPost"></line-chart>
+      </div>
 
-      <div class="column">
-         <h3>Использование</h3>
-        <line-chart :chartData="linechartdata"></line-chart>
+			<div class="column">
+         <h3>Использование в комментах</h3>
+        <line-chart :chartData="lineChartDataComment"></line-chart>
       </div>
-  </div>
-  <h2>Тональность текста</h2>
-  <div class="columns">
-      <div class="column">
-        <h3>Instagram</h3>
-        <pie-chart :chartData="piechartdatainsta"></pie-chart>
-      </div>
-      <div class="column">
-        <h3>Вконтакте</h3>
-        <pie-chart-vk :chartData="piechartdatavk"></pie-chart-vk>
-      </div>
-  </div>
+		</div>
+
+		<h2>Тональность текста</h2>
+	  <div class="columns">
+	      <div class="column">
+	        <h3>Instagram посты</h3>
+	        <pie-chart :chartData="pieChartDataPost"></pie-chart>
+	      </div>
+	      <div class="column">
+	        <h3>Instagram комменты</h3>
+	        <pie-chart :chartData="pieChartDataComment"></pie-chart>
+	      </div>
+	  </div>
   </div>
 		<!-- <Footer /> -->
 	</div>
@@ -70,14 +81,15 @@ export default {
       keyword: "",
       startdate:"",
       finishdate: "",
-			linechartdata: {},
-			piechartdatainsta: {},
-			piechartdatavk: {}
+			lineChartDataPost: {},
+			lineChartDataComment: {},
+			pieChartDataPost: {},
+			pieChartDataComment: {}
     }
   },
   methods: {
     send: function () {
-	    let api = 'http://127.0.0.1:5000/get_data'
+	    let api = 'https://social-ml.herokuapp.com/get_data'
 	    let keyword = this.keyword
 	    let startdate = this.startdate
 	    let finishdate = this.finishdate
@@ -94,8 +106,10 @@ export default {
 				}
 			}).then( (response) => {
 					// console.log(response)
-					this.linechartdata = response.data['line']
-					this.piechartdatainsta = response.data['pie'][0]
+					this.lineChartDataPost = response.data['line']['post']
+					this.lineChartDataComment = response.data['line']['comment']
+					this.pieChartDataPost = response.data['pie']['post']['insta']
+					this.pieChartDataComment = response.data['pie']['comment']['insta']
 					console.log(this.stats)
 					// this.$store.commit('change_data', response.data)
 	        // this.$router.push('/analyse')
