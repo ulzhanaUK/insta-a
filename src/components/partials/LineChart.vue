@@ -5,9 +5,30 @@
   export default {
     extends: Line,
     mixins: [mixins.reactiveProp],
-    props: ['chartData', 'options'],
+    props: ['chartData'],
     mounted () {
-      this.renderChart(this.chartData, this.options)
+      this.renderChart(this.chartData, {
+         scales: {
+           yAxes: [{
+             ticks: {
+               beginAtZero: true
+             },
+             gridLines: {
+               display: true
+             }
+           }],
+           xAxes: [ {
+             gridLines: {
+               display: false
+             }
+           }]
+         },
+         legend: {
+           display: true
+         },
+         responsive: true,
+         maintainAspectRatio: false
+       })
     }
   }
 </script>

@@ -1,22 +1,13 @@
 <script>
  //Importing Line class from the vue-chartjs wrapper
- import {Pie} from 'vue-chartjs'
- //Exporting this so it can be used in other components
- export default {
- extends: Pie,
- mounted () {
-   this.renderChart({
-     labels: ['Позитивность', 'Негативность'],
-     datasets: [
-       {
-         backgroundColor: [
-           '#00D8FF',
-           '#E46651'
-         ],
-         data: [70, 30]
-       }
-     ]
-   }, {responsive: true, maintainAspectRatio: false})
- }
-}
+  import {Pie, mixins} from 'vue-chartjs'
+  //Exporting this so it can be used in other components
+  export default {
+    extends: Pie,
+    mixins: [mixins.reactiveProp],
+    props: ['chartData'],
+    mounted () {
+      this.renderChart(this.chartData, {responsive: true, maintainAspectRatio: false})
+    }
+  }
 </script>

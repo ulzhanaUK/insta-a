@@ -31,18 +31,18 @@
 
       <div class="column">
          <h3>Использование</h3>
-        <line-chart :chartData="stats"></line-chart>
+        <line-chart :chartData="linechartdata"></line-chart>
       </div>
   </div>
   <h2>Тональность текста</h2>
   <div class="columns">
       <div class="column">
         <h3>Instagram</h3>
-        <pie-chart></pie-chart>
+        <pie-chart :chartData="piechartdatainsta"></pie-chart>
       </div>
       <div class="column">
         <h3>Вконтакте</h3>
-        <pie-chart-vk></pie-chart-vk>
+        <pie-chart-vk :chartData="piechartdatavk"></pie-chart-vk>
       </div>
   </div>
   </div>
@@ -70,7 +70,9 @@ export default {
       keyword: "",
       startdate:"",
       finishdate: "",
-      stats: []
+			linechartdata: {},
+			piechartdatainsta: {},
+			piechartdatavk: {}
     }
   },
   methods: {
@@ -92,7 +94,8 @@ export default {
 				}
 			}).then( (response) => {
 					// console.log(response)
-					this.stats = response.data
+					this.linechartdata = response.data['line']
+					this.piechartdatainsta = response.data['pie'][0]
 					console.log(this.stats)
 					// this.$store.commit('change_data', response.data)
 	        // this.$router.push('/analyse')
