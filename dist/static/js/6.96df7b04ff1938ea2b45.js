@@ -1,0 +1,2 @@
+webpackJsonp([6],{"/ger":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={components:{Navbar:n("ntvM").default}},s={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",[t("Navbar"),this._v(" "),t("h2",[this._v("About us")])],1)},staticRenderFns:[]};var u=n("VU/8")(r,s,!1,function(e){n("KUlN")},null,null);t.default=u.exports},KUlN:function(e,t){}});
+//# sourceMappingURL=6.96df7b04ff1938ea2b45.js.map
