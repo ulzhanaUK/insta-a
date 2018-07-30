@@ -2,8 +2,6 @@
 	<div>
 		<Navbar2 />
     <div class="columns">
-			<div class="column">
-			</div>
       <div class="column">
 				<vk-card class="uk-width-1-1@m">
 				  <form class="login uk-form" @submit.prevent="send">
@@ -30,8 +28,6 @@
 					</form>
 			  </vk-card>
 		  </div>
-			<div class="column">
-			</div>
   	</div>
 		<div class="columns">
 			<div class="column">
@@ -57,20 +53,20 @@
 	      </div>
 	  </div>
 
-		<div class="columns">
+		<div class="columns" v-if="mainData != {}">
 			<div class="column">
 				<h3>Все посты:</h3>
 				<ul>
 				  <li v-for="user in mainData['posts']">
 				    {{ user.user }}
-				  </li>
-					<ul>
-					  <li v-for="post in user.posts">
-					    {{ post.text }}
-							<br>
-							{{ post.sentiment }}
-					  </li>
-					</ul>
+						<ul>
+						  <li v-for="post in user['posts']">
+						    {{ post.text }}
+								<br>
+								{{ post.sentiment }}
+						  </li>
+						</ul>
+					 </li>
 				</ul>
 			</div>
 			<div class="column">
@@ -78,14 +74,14 @@
 				<ul>
 				  <li v-for="user in mainData['comments']">
 				    {{ user.user }}
-				  </li>
-					<ul>
-					  <li v-for="comment in user.comments">
-					    {{ comment.text }}
-							<br>
-							{{ comment.sentiment }}
-					  </li>
-					</ul>
+						<ul>
+						  <li v-for="comment in user['comments']">
+						    {{ comment.text }}
+								<br>
+								{{ comment.sentiment }}
+						  </li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
