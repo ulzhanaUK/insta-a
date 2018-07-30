@@ -27,5 +27,9 @@
 .uk-navbar-container:not(.uk-navbar-transparent) {
     background: #ffffff;
 }  
+element.style {
+    height: 0px;
+    margin: 0px;
+}
 
 </style>

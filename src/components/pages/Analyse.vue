@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<Navbar2 />
-
-		<center>
+        <div class="columns">
+        	<div class="column">
 			<vk-card class="uk-width-1-3@m">
 			  <form class="login uk-form" @submit.prevent="send">
 			    <h3>Analyse the keyword</h3>
@@ -27,9 +27,8 @@
 					</div>
 				</form>
 		  </vk-card>
-  	</center>
+		  </div>
 
-		<div class="columns">
       <div class="column">
          <h3>Line Chart</h3>
         <line-chart :response="stats"></line-chart>
@@ -61,7 +60,7 @@ export default {
       keyword: "",
       startdate:"",
       finishdate: "",
-      stats: {}
+      stats: []
     }
   },
   methods: {
@@ -95,5 +94,10 @@ export default {
 </script>
 
 <style>
-
+.uk-button-primary {
+	background-color: #c15a54
+}
+::selection {
+	background: #a53f34
+}
 </style>
