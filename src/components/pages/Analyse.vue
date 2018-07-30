@@ -3,40 +3,48 @@
 		<Navbar2 />
         <div class="columns">
         	<div class="column">
-			<vk-card class="uk-width-1-3@m">
+			<vk-card class="uk-width-1-1@m">
 			  <form class="login uk-form" @submit.prevent="send">
-			    <h3>Analyse the keyword</h3>
+			    <h3>Проверить</h3>
 
-					<span>Keyword</span>
+					<span>Текст</span>
 					<div class="uk-margin uk-width-1-1">
-				    <input class="uk-input" required v-model="keyword" type="text" placeholder="keyword">
+				    <input class="uk-input" required v-model="keyword" type="text" placeholder="текст">
 					</div>
 
-					<span>Start date</span>
+					<span>Начальная дата</span>
 					<div class="uk-margin uk-width-1-1">
 			      <input class="uk-input" type="date" v-model="startdate" placeholder="DD.MM.YYYY" data-uk-datepicker="{format:'DD.MM.YYYY'}">
 					</div>
 
-					<span>Finish date</span>
+					<span>Конечная дата</span>
 					<div class="uk-margin uk-width-1-1">
 						<input class="uk-input" type="date" v-model="finishdate" placeholder="DD.MM.YYYY" data-uk-datepicker="{format:'DD.MM.YYYY'}">
 					</div>
 
 					<div class="uk-margin uk-width-1-1">
-						<button type="submit" class="uk-width-1-2 uk-button uk-button-primary uk-button-small">Analyse</button>
+						<button type="submit" class="uk-width-1-2 uk-button uk-button-primary uk-button-small">Анализировать</button>
 					</div>
 				</form>
 		  </vk-card>
 		  </div>
 
       <div class="column">
-         <h3>Line Chart</h3>
+         <h3>Использование</h3>
         <line-chart :chartData="stats"></line-chart>
       </div>
+  </div>
+  <h2>Тональность текста</h2>
+  <div class="columns">
       <div class="column">
-        <h3>Pie Chart</h3>
+        <h3>Instagram</h3>
         <pie-chart></pie-chart>
       </div>
+      <div class="column">
+        <h3>Вконтакте</h3>
+        <pie-chart-vk></pie-chart-vk>
+      </div>
+  </div>
   </div>
 		<!-- <Footer /> -->
 	</div>
@@ -47,13 +55,15 @@ import Navbar2 from "@/components/partials/Navbar2"
 // import Footer from "@/components/partials/Footer"
 import LineChart from '@/components/partials/LineChart'
 import PieChart from '@/components/partials/PieChart'
+import PieChartVk from '@/components/partials/PieChartVK'
 
 export default {
   components: {
     Navbar2,
     // Footer,
     LineChart,
-    PieChart
+    PieChart,
+    PieChartVk
   },
   data() {
     return {
@@ -92,14 +102,13 @@ export default {
     }
   }
 }
-
 </script>
 
 <style>
 .uk-button-primary {
 	background-color: #c15a54
 }
-::selection {
-	background: #a53f34
+.columns {
+	margin-top: 5%;
 }
 </style>

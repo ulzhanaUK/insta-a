@@ -37,7 +37,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .uk-navbar-container:not(.uk-navbar-transparent) {
+.uk-navbar-container:not(.uk-navbar-transparent) {
     background: #ffffff;
 }  
+.uk-navbar-center {
+    margin-left: 13%;
+}
 </style>

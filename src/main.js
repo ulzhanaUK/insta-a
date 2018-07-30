@@ -10,7 +10,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'chart.js'
 import 'hchs-vue-charts'
-import store from './stores'
+
 
 Vue.use(window.VueCharts)
 Vue.use(VueAxios, axios)
@@ -23,7 +23,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  store,
   components: { App },
   template: '<App/>'
 })

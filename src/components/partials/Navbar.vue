@@ -31,5 +31,8 @@ element.style {
     height: 0px;
     margin: 0px;
 }
+.uk-navbar-center {
+    margin-left: 13%;
+}
 
 </style>

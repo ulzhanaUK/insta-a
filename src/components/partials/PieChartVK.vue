@@ -13,7 +13,7 @@
            '#00D8FF',
            '#E46651'
          ],
-         data: [70, 30]
+         data: [40, 60]
        }
      ]
    }, {responsive: true, maintainAspectRatio: false})
