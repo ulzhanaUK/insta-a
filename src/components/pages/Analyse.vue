@@ -56,6 +56,39 @@
 	        <pie-chart :chartData="pieChartDataComment"></pie-chart>
 	      </div>
 	  </div>
+
+		<div class="columns">
+			<div class="column">
+				<h3>Все посты:</h3>
+				<ul>
+				  <li v-for="user in mainData['posts']">
+				    {{ user.user }}
+				  </li>
+					<ul>
+					  <li v-for="post in user.posts">
+					    {{ post.text }}
+							<br>
+							{{ post.sentiment }}
+					  </li>
+					</ul>
+				</ul>
+			</div>
+			<div class="column">
+				<h3>Все комменты:</h3>
+				<ul>
+				  <li v-for="user in mainData['comments']">
+				    {{ user.user }}
+				  </li>
+					<ul>
+					  <li v-for="comment in user.comments">
+					    {{ comment.text }}
+							<br>
+							{{ comment.sentiment }}
+					  </li>
+					</ul>
+				</ul>
+			</div>
+		</div>
   </div>
 		<!-- <Footer /> -->
 	</div>
@@ -84,12 +117,14 @@ export default {
 			lineChartDataPost: {},
 			lineChartDataComment: {},
 			pieChartDataPost: {},
-			pieChartDataComment: {}
+			pieChartDataComment: {},
+			mainData: {}
     }
   },
   methods: {
     send: function () {
 	    let api = 'https://social-ml.herokuapp.com/get_data'
+			// let api = 'http://127.0.0.1:5000/get_data'
 	    let keyword = this.keyword
 	    let startdate = this.startdate
 	    let finishdate = this.finishdate
@@ -110,7 +145,9 @@ export default {
 					this.lineChartDataComment = response.data['line']['comment']
 					this.pieChartDataPost = response.data['pie']['post']['insta']
 					this.pieChartDataComment = response.data['pie']['comment']['insta']
-					console.log(this.stats)
+					this.mainData = response.data['main']
+
+					console.log(response.data['main'])
 					// this.$store.commit('change_data', response.data)
 	        // this.$router.push('/analyse')
 	      }, (err) => {
