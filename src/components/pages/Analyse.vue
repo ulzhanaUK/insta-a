@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<Navbar2 />
-    <div class="columns">
-      <div class="column">
-				<vk-card class="uk-width-1-1@m">
+    <center>
+      <div>
+				<vk-card class="uk-width-1-3@m">
 				  <form class="login uk-form" @submit.prevent="send">
 				    <h3>Проверить</h3>
 
@@ -28,7 +28,7 @@
 					</form>
 			  </vk-card>
 		  </div>
-  	</div>
+  	</center>
 		<div class="columns">
 			<div class="column">
          <h3>Использование в постах</h3>
