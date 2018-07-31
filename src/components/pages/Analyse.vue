@@ -52,42 +52,44 @@
 	        <pie-chart :chartData="pieChartDataComment"></pie-chart>
 	      </div>
 	  </div>
-
-		<div class="columns" v-if="mainData != {}">
-			<div class="column">
+        <div class="uk-child-width-1-2@s uk-grid-match" v-if="mainData != {}" uk-grid>
+           <div>
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
 				<h3>Все посты:</h3>
 				<ul>
 				  <li v-for="user in mainData['posts']">
-				    {{ user.user }}
+				    <h3>{{ user.user }}</h3>
 						<ul>
 						  <li v-for="post in user['posts']">
 						    {{ post.text }}
 								<br>
-								{{ post.sentiment }}
+								<div class="uk-label uk-flex uk-flex-right">{{ post.sentiment }}</div>
 						  </li>
 						</ul>
 					 </li>
 				</ul>
 			</div>
-			<div class="column">
+		</div>
+		<div>
+			<div class="uk-card uk-card-default uk-card-hover uk-card-body">
 				<h3>Все комменты:</h3>
 				<ul>
 				  <li v-for="user in mainData['comments']">
-				    {{ user.user }}
+				    <h4>{{ user.user }}</h4>
 						<ul>
 						  <li v-for="comment in user['comments']">
-						    {{ comment.text }}
+						    {{ comment.text }}  
 								<br>
-								{{ comment.sentiment }}
+								<div class="uk-label uk-flex uk-flex-right">{{ comment.sentiment }}</div>
 						  </li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
+	</div>
   </div>
 		<!-- <Footer /> -->
-	</div>
 </template>
 
 <script>
