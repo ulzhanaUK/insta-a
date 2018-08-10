@@ -78,7 +78,7 @@
 				    <h4>{{ user.user }}</h4>
 						<ul>
 						  <li v-for="comment in user['comments']">
-						    {{ comment.text }}  
+						    {{ comment.text }}
 								<br>
 								<div class="uk-label uk-flex uk-flex-right">{{ comment.sentiment }}</div>
 						  </li>
